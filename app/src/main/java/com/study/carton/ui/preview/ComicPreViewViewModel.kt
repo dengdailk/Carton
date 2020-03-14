@@ -34,7 +34,7 @@ class ComicPreViewViewModel : BaseViewModel() {
                     imageListBean.listSize = imageList.size
                     imageListBean.chapter_id = it.chapter_id
                 }
-                val chapter = chapterDao.getReadChapter(it.chapter_id)
+                val chapter = it.chapter_id?.let { it1 -> chapterDao.getReadChapter(it1) }
                 if (chapter == null) {
                     comicPreView.data?.returnData?.position = 0
                 } else {

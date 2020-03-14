@@ -146,17 +146,21 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
                         rv_list.scrollToPosition(it.position)
                         (rv_list.layoutManager as LinearLayoutManager)
                             .scrollToPositionWithOffset(it.position, 0)
-                        updateCurrPagerProcess(
-                            it.position,
-                            it.image_list!!.size,
-                            mCurrRequestNewChapterBean.name
-                        )
+                        mCurrRequestNewChapterBean.name?.let { it1 ->
+                            updateCurrPagerProcess(
+                                it.position,
+                                it.image_list!!.size,
+                                it1
+                            )
+                        }
                     } else {
-                        updateCurrPagerProcess(
-                            1,
-                            it.image_list!!.size,
-                            mCurrRequestNewChapterBean.name
-                        )
+                        mCurrRequestNewChapterBean.name?.let { it1 ->
+                            updateCurrPagerProcess(
+                                1,
+                                it.image_list!!.size,
+                                it1
+                            )
+                        }
                     }
                 }
                 else -> {
@@ -171,11 +175,13 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
                             rv_list.scrollToPosition(0)
                             (rv_list.layoutManager as LinearLayoutManager)
                                 .scrollToPositionWithOffset(0, 0)
-                            updateCurrPagerProcess(
-                                1,
-                                it.image_list!!.size,
-                                mCurrRequestNewChapterBean.name
-                            )
+                            mCurrRequestNewChapterBean.name?.let { it1 ->
+                                updateCurrPagerProcess(
+                                    1,
+                                    it.image_list!!.size,
+                                    it1
+                                )
+                            }
                         }
                     }
                 }
@@ -271,7 +277,7 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
     private fun request(hasLoading: Boolean = false) {
         if (hasLoading)
             showLoading()
-        mViewModel.getPreView(mCurrRequestNewChapterBean.chapter_id)
+        mCurrRequestNewChapterBean.chapter_id?.let { mViewModel.getPreView(it) }
     }
 
 
@@ -404,13 +410,19 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
 
             mCurrRequestNewChapterBean = chapterBean
             mViewModel.setCurrChapterInfo(mCurrRequestNewChapterBean)
-            mChapterListPosition[mCurrRequestNewChapterBean.chapter_id] = position
+            mChapterListPosition[mCurrRequestNewChapterBean.chapter_id!!] = position
             //保存阅读记录,并且更新右边章节的阅读状态
             if (isSaveDb && !mCurrRequestNewChapterBean.isRead) {
-                updateRecordAndUi(
-                    position, mCurrRequestNewChapterBean.chapter_id,
-                    mCurrRequestNewChapterBean.name, mCurrRequestNewChapterBean.type
-                )
+                mCurrRequestNewChapterBean.chapter_id?.let {
+                    mCurrRequestNewChapterBean.name?.let { it1 ->
+                        mCurrRequestNewChapterBean.type?.let { it2 ->
+                            updateRecordAndUi(
+                                position, it,
+                                it1, it2
+                            )
+                        }
+                    }
+                }
                 //保存阅读记录
                 mSaveChapterList.put(position, chapterBean.chapter_id)
             }
@@ -469,7 +481,7 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
                 1
             } else progress
             //更新右下角
-            updateCurrPagerProcess(index, max, mCurrRequestNewChapterBean.name)
+            mCurrRequestNewChapterBean.name?.let { updateCurrPagerProcess(index, max, it) }
             rv_list.scrollToPosition(progress)
         }
     }

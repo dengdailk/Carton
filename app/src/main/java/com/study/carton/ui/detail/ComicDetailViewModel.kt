@@ -84,7 +84,7 @@ class ComicDetailViewModel : BaseViewModel() {
 
     fun getCollectionStatus(comicBean: ComicDetailResponse.ComicBean) {
         viewModelScope.launch {
-            comicBean.comic_id?.let { comicCollectionDao.getComicCollection(it) }
+            comicBean.comic_id.let { comicCollectionDao.getComicCollection(it) }
         }
     }
 
@@ -99,17 +99,23 @@ class ComicDetailViewModel : BaseViewModel() {
     ) {
         viewModelScope.launch {
             mSaveReadChapter.value = withContext(Dispatchers.IO) {
-                val chapter = readChapterDao.getReadChapter(chapterListBean.chapter_id)
+                val chapter = chapterListBean.chapter_id?.let { readChapterDao.getReadChapter(it) }
                 if (chapter == null){
-                    readChapterDao.insert(ReadChapter(0,
-                        book.comic_id, book.name, chapterListBean.chapter_id
-                        , chapterListBean.name, chapterListBean.type,0
-                    ))
+                    chapterListBean.chapter_id?.let {
+                        chapterListBean.name?.let { it1 ->
+                            chapterListBean.type?.let { it2 ->
+                                ReadChapter(0,
+                                    book.comic_id, book.name, it
+                                    , it1, it2,0
+                                )
+                            }
+                        }
+                    }?.let { readChapterDao.insert(it) }
                 }else{
                     chapter.comicId = book.comic_id
                     chapter.comicName = book.name
-                    chapter.chapterName = chapterListBean.name
-                    chapter.type = chapterListBean.type
+                    chapter.chapterName = chapterListBean.name!!
+                    chapter.type = chapterListBean.type!!
                     readChapterDao.update(chapter)
                 }
                 chapterListBean
@@ -123,13 +129,9 @@ class ComicDetailViewModel : BaseViewModel() {
      */
     fun saveHistoryRecord(book: ComicDetailResponse.ComicBean){
         viewModelScope.launch(Dispatchers.IO){
-            val historyRecord = book.comic_id?.let {
-                book.name?.let { it1 ->
-                    HistoryRecord(0,
-                        it, it1,book.last_update_time.toString())
-                }
-            }
-            historyRecord?.let { historyRecordDao.insert(it) }
+            val historyRecord = HistoryRecord(0,
+                book.comic_id, book.name,book.last_update_time.toString())
+            historyRecord.let { historyRecordDao.insert(it) }
         }
     }
 
