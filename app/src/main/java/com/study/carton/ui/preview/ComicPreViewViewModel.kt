@@ -5,11 +5,13 @@ import androidx.lifecycle.viewModelScope
 import com.study.carton.base.BaseViewModel
 import com.study.carton.bean.detail.ComicDetailResponse
 import com.study.carton.bean.preview.ComicPreViewResponse
-import com.study.carton.db.*
+import com.study.carton.db.BookDatabase
+import com.study.carton.db.ComicCollectionDao
+import com.study.carton.db.HistoryRecordDao
+import com.study.carton.db.ReadChapter
 import com.study.carton.http.RetrofitClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.text.ParsePosition
 
 /**
  *
@@ -44,12 +46,13 @@ class ComicPreViewViewModel : BaseViewModel() {
                     imageListBean.listSize = imageList.size
                     imageListBean.chapter_id = it.chapter_id
                 }
-//                mBookDao.finReadChapterById(it.chapter_id)?.apply {
-//                    comicPreView.data?.returnData?.position = this.readPosition
-//                }
-                chapterDao.getReadChapter(it.chapter_id).apply {
-                    comicPreView.data?.returnData?.position = this.readPosition
+                val chapter = chapterDao.getReadChapter(it.chapter_id)
+                if (chapter == null) {
+                    comicPreView.data?.returnData?.position = 0
+                } else {
+                    comicPreView.data?.returnData?.position = chapter.readPosition
                 }
+
             }
             comicPreView
         }, {
@@ -64,9 +67,9 @@ class ComicPreViewViewModel : BaseViewModel() {
         chapterName: String,
         type: String,
         readPosition: Int
-    ) {
+    ): Boolean {
         if (comicId != null && comicName != null) {
-            return chapterDao.insert(
+            chapterDao.insert(
                 ReadChapter(
                     0,
                     chapter_id,
@@ -78,14 +81,19 @@ class ComicPreViewViewModel : BaseViewModel() {
                 )
             )
         }
+        return true
     }
 
 
     fun saveReadPosition(chapter_id: String, position: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-//                      val status =   mBookDao.saveReadPosition(chapter_id, position)
-            saveReadPosition(chapter_id, position)
-//            com.orhanobut.logger.Logger.e("-- 保存阅读位置 $position status $status")
+            val chapter = chapterDao.getReadChapter(chapter_id)
+            chapter.readPosition = position
+            chapterDao.saveReadPosition(chapter)
+
+
+//            saveReadPosition(chapter_id, position)
+//            com.orhanobut.logger.Logger.e("-- 保存阅读位置 $position status")
         }
     }
 

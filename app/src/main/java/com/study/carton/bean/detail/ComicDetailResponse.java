@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 
+import com.study.carton.db.ReadChapter;
+
 import java.util.List;
 
 /**
@@ -484,6 +486,12 @@ public class ComicDetailResponse {
             if (obj instanceof ChapterListBean) {
                 ChapterListBean bean =  (ChapterListBean)obj;
                 if(bean.chapter_id.equals(chapter_id)){
+                    return true;
+                }
+            }
+            if(obj instanceof ReadChapter){
+                ReadChapter bean =  (ReadChapter)obj;
+                if(bean.getChapter_id().equals(chapter_id)){
                     return true;
                 }
             }

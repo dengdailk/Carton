@@ -182,9 +182,9 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
             }
         })
         sb_bar.setOnSeekBarChangeListener(this)
-        tv_menu.setOnClickListener(this)
-        tv_brightness.setOnClickListener(this)
-        tv_switch_module.setOnClickListener(this)
+        menu.setOnClickListener(this)
+        brightness.setOnClickListener(this)
+        switch_module.setOnClickListener(this)
         request(true)
     }
 
@@ -314,13 +314,13 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.tv_menu -> {
+            R.id.menu -> {
                 if (ll_bottom.translationY == 0f) {
                     switchBAndTMenu()
                 }
                 switchRightMenu()
             }
-            R.id.tv_switch_module -> {
+            R.id.switch_module -> {
                 if (ll_bottom.translationY == 0f) {
                     switchBAndTMenu()
                 }
@@ -344,7 +344,7 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
                     }
                 }
             }
-            R.id.tv_brightness -> {
+            R.id.brightness -> {
                 if (ll_bottom.translationY == 0f) {
                     switchBAndTMenu()
                 }
@@ -436,13 +436,14 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
         chapterName: String,
         type: String
     ) {
-//        if (mViewModel.saveReadChapter(chapterId,chapterName,comicId, comicName,type,readPosition)) {
+
+        if (mViewModel.saveReadChapter(comicId, comicName,chapterId,chapterName,type,position)) {
             getAdapter<ChapterAdapter>(rv_right_list)?.apply {
                 getItem(position)?.isRead = true
                 notifyItemChanged(position)
                 Logger.e("-- 更新位置$position name $chapterName")
             }
-//        }
+        }
     }
 
     override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {

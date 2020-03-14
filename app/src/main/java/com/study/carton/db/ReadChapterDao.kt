@@ -1,10 +1,6 @@
 package com.study.carton.db
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import com.study.carton.bean.detail.ComicDetailResponse
+import androidx.room.*
 
 /**
  * @author dengdai
@@ -32,4 +28,7 @@ interface ReadChapterDao:BaseDao<ReadChapter> {
 
     @Query("delete from ReadChapter")
     fun deleteAll()
+
+    @Update
+    fun saveReadPosition(chapter:ReadChapter)
 }

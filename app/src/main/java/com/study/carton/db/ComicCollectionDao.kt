@@ -1,7 +1,6 @@
 package com.study.carton.db
 
 import androidx.room.*
-import com.study.carton.bean.detail.ComicDetailResponse
 
 /**
  * @author dengdai

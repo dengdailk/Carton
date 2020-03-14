@@ -3,6 +3,7 @@ package com.study.carton.db
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.study.carton.bean.detail.ComicDetailResponse
 
 /**
  * @author dengdai
@@ -19,7 +20,10 @@ data class ComicCollection (
     var comicId:String,
     @ColumnInfo
     var comicName:String,
+    @ColumnInfo
     var coverUrl:String,
+    @ColumnInfo
     var comicSize:Int,
+    @ColumnInfo
     var readChapterPosition:Int
 )
