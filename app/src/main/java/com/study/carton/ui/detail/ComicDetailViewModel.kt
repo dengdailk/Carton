@@ -29,9 +29,9 @@ class ComicDetailViewModel : BaseViewModel() {
     //收藏 true 已收藏 false 收藏
     var mSaveCollection = MutableLiveData<Boolean>()
 
-    val comicCollectionDao : ComicCollectionDao = BookDatabase.instance.getComicCollectionDao()
-    val historyRecordDao : HistoryRecordDao = BookDatabase.instance.getHistoryRecordDao()
-    val readChapterDao:ReadChapterDao = BookDatabase.instance.getReadChapterDao()
+    private val comicCollectionDao : ComicCollectionDao = BookDatabase.instance.getComicCollectionDao()
+    private val historyRecordDao : HistoryRecordDao = BookDatabase.instance.getHistoryRecordDao()
+    private val readChapterDao:ReadChapterDao = BookDatabase.instance.getReadChapterDao()
 
     fun getComicDetail(comicId: String) {
         request({
@@ -106,15 +106,11 @@ class ComicDetailViewModel : BaseViewModel() {
     ) {
         viewModelScope.launch {
             mSaveReadChapter.value = withContext(Dispatchers.IO) {
-//                readChapterDao.insert(ReadChapter(0,
-//                        book.comic_id, book.name, chapterListBean.chapter_id
-//                        , chapterListBean.name, chapterListBean.type,
-//                    ))
-                val chapter:ReadChapter = readChapterDao.getReadChapter(chapterListBean.chapter_id)
+                val chapter = readChapterDao.getReadChapter(chapterListBean.chapter_id)
                 if (chapter == null){
                     readChapterDao.insert(ReadChapter(0,
                         book.comic_id, book.name, chapterListBean.chapter_id
-                        , chapterListBean.name, chapterListBean.type,1
+                        , chapterListBean.name, chapterListBean.type,0
                     ))
                 }else{
                     chapter.comicId = book.comic_id
@@ -125,8 +121,6 @@ class ComicDetailViewModel : BaseViewModel() {
                 }
                 chapterListBean
             }
-
-//            mSaveReadChapter.postValue(readChapterDao.insert(ReadChapter()))
         }
     }
 

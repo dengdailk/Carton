@@ -6,8 +6,6 @@ import com.study.carton.base.BaseViewModel
 import com.study.carton.bean.detail.ComicDetailResponse
 import com.study.carton.bean.preview.ComicPreViewResponse
 import com.study.carton.db.BookDatabase
-import com.study.carton.db.ComicCollectionDao
-import com.study.carton.db.HistoryRecordDao
 import com.study.carton.db.ReadChapter
 import com.study.carton.http.RetrofitClient
 import kotlinx.coroutines.Dispatchers
@@ -23,9 +21,7 @@ import kotlinx.coroutines.launch
  */
 class ComicPreViewViewModel : BaseViewModel() {
     val mPerViewResponse = MutableLiveData<ComicPreViewResponse>()
-    val comicCollectionDao : ComicCollectionDao = BookDatabase.instance.getComicCollectionDao()
-    val historyRecordDao : HistoryRecordDao = BookDatabase.instance.getHistoryRecordDao()
-    val chapterDao = BookDatabase.instance.getReadChapterDao()
+    private val chapterDao = BookDatabase.instance.getReadChapterDao()
     //当前最新章节信息
     private var mCurrRequestNewChapterBean: ComicDetailResponse.ChapterListBean? = null
 
@@ -69,7 +65,7 @@ class ComicPreViewViewModel : BaseViewModel() {
         readPosition: Int
     ): Boolean {
         if (comicId != null && comicName != null) {
-            chapterDao.insert(
+            chapterDao.update(
                 ReadChapter(
                     0,
                     chapter_id,
