@@ -14,14 +14,6 @@ import com.gyf.immersionbar.ImmersionBar
 import com.study.carton.R
 import com.study.carton.utils.DisplayUtils
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/9/24 18:00
- * @describe describe
- *
- */
 class RootIconBehavior : CoordinatorLayout.Behavior<ConstraintLayout> {
     constructor() : super()
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)

@@ -5,9 +5,7 @@ import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import com.study.carton.App
 import com.study.carton.BuildConfig
-import com.study.carton.utils.NetWorkUtils
 import okhttp3.Cache
-import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -17,14 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/9/20 15:51
- * @describe describe
- *
- */
+
 
 object RetrofitClient {
 

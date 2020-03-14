@@ -4,14 +4,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/2 20:31
- * @describe describe
- *
- */
 object DecorationUtils{
     /**
      * 是否是第一列

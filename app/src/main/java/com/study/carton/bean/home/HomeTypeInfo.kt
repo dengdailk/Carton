@@ -2,14 +2,7 @@ package com.study.carton.bean.home
 
 import com.chad.library.adapter.base.entity.MultiItemEntity
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/9/23 14:49
- * @describe describe
- *
- */
+
 class HomeTypeInfo(type: Int = TITLE) : MultiItemEntity {
 
     private var currItemType = type

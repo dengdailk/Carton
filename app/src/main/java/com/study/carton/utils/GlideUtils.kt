@@ -11,12 +11,7 @@ import com.bumptech.glide.request.target.Target
 import com.study.carton.R
 
 /**
- *
- * @author  Lai
- *
- * @time 2019/9/16 0:14
- * @describe describe
- *
+ * @describe Glide工具类
  */
 object GlideUtils {
 

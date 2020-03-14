@@ -1,10 +1,6 @@
 package com.study.carton.bean.search
 
-/**
- * @author Lai
- * @time 2019/10/15 1:53
- * @describe describe
- */
+
 class ComicSearchResponse {
     /**
      * comicNum : 93

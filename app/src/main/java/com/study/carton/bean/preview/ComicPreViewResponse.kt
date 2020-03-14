@@ -1,10 +1,6 @@
 package com.study.carton.bean.preview
 
-/**
- * @author Lai
- * @time 2019/10/4 14:47
- * @describe describe
- */
+
 class ComicPreViewResponse {
     /**
      * status : 2

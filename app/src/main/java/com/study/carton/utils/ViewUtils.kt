@@ -9,15 +9,6 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import com.gyf.immersionbar.ImmersionBar
 
-
-/**
- *
- * @author  Lai
- *
- * @time 2019/9/25 22:15
- * @describe describe
- *
- */
 object ViewUtils {
     fun setDrawRight(context: Context, @DrawableRes res: Int, mTextView: TextView) {
         val drawableRight = context.resources.getDrawable(res)

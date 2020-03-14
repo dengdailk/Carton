@@ -8,14 +8,7 @@ import com.study.carton.bean.home.HomeTypeInfo
 import com.study.carton.utils.DecorationUtils
 import com.study.carton.utils.DisplayUtils
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/2 15:39
- * @describe describe
- *
- */
+
 class HomeDecoration(space: Int, private var headSpace: Int, private var footSpace: Int) : RecyclerView.ItemDecoration() {
 
     private var space: Int = 0

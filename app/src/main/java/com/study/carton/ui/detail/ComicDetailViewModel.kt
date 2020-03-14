@@ -11,14 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/3 21:16
- * @describe describe
- *
- */
+
 class ComicDetailViewModel : BaseViewModel() {
 
     var mComicDetailResponse = MutableLiveData<ComicDetailResponse>()

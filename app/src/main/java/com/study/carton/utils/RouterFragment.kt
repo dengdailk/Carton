@@ -6,15 +6,6 @@ import android.util.SparseArray
 import androidx.fragment.app.Fragment
 import java.util.*
 
-
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/13 18:33
- * @describe describe
- *
- */
 class RouterFragment : Fragment() {
 
     private val mCodeGenerator = Random()

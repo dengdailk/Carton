@@ -10,11 +10,6 @@ import androidx.appcompat.app.AppCompatDialog
 import com.study.carton.R
 
 
-/**
- * @author Lai
- * @time 2018/10/12 13:59
- * @Description
- */
 abstract class BaseDialog(context: Context,theme: Int = R.style.Theme_AppCompat_Dialog) : AppCompatDialog(context,theme) {
     abstract fun getLayout(): Int
     abstract fun init(view: View)

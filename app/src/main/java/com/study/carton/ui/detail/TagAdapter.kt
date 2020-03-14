@@ -6,14 +6,7 @@ import com.study.carton.R
 import com.study.carton.bean.detail.ComicDetailResponse
 
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/8 15:56
- * @describe describe
- *
- */
+
 class TagAdapter(list: List<ComicDetailResponse.ComicBean.ClassifyTagsBean>) :
     BaseQuickAdapter<ComicDetailResponse.ComicBean.ClassifyTagsBean, BaseViewHolder>(
         R.layout.item_tag_list,

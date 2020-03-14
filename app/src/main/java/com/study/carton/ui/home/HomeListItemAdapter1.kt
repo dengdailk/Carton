@@ -8,14 +8,6 @@ import com.study.carton.bean.home.RecommendResponse
 import com.study.carton.utils.DisplayUtils
 import com.study.carton.utils.GlideUtils
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/1 23:30
- * @describe describe
- *
- */
 class HomeListItemAdapter1(data: List<RecommendResponse.ComicListsBean.ComicsBean>) :
     BaseQuickAdapter<RecommendResponse.ComicListsBean.ComicsBean, BaseViewHolder>(
         R.layout.item_type_content_item_1,

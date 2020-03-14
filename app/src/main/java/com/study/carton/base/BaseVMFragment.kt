@@ -5,14 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/9/22 16:58
- * @describe describe
- *
- */
+
 abstract class BaseVMFragment : BaseFragment() {
 
     /**

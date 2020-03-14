@@ -28,7 +28,6 @@ class App : Application() {
         super.onCreate()
         CONTEXT = applicationContext
         initLogger()
-        inItDb()
         Preference.setContext(applicationContext)
     }
 
@@ -39,11 +38,6 @@ class App : Application() {
         SmartRefreshLayout.setDefaultRefreshFooterCreator { context, _ ->
               ClassicsFooter(context).setDrawableSize(20f)
         }
-    }
-
-
-    private fun inItDb(){
-
     }
 
 

@@ -7,14 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.study.carton.utils.DecorationUtils
 import com.study.carton.utils.DisplayUtils
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/2 15:39
- * @describe describe
- *
- */
+
 class ChapterDecoration : RecyclerView.ItemDecoration() {
 
 

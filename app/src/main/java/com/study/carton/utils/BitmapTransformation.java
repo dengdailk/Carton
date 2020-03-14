@@ -15,11 +15,6 @@ import com.bumptech.glide.util.Util;
 
 import java.security.MessageDigest;
 
-/**
- * @author Lai
- * @time 2019/9/21 17:11
- * @describe describe
- */
 public abstract class BitmapTransformation implements Transformation<Bitmap> {
 
     @NonNull

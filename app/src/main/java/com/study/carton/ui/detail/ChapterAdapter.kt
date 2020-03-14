@@ -6,14 +6,7 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.study.carton.R
 import com.study.carton.bean.detail.ComicDetailResponse
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/3 21:49
- * @describe describe 详情页和阅读页共同列表适配器
- *
- */
+
 class ChapterAdapter(data: List<ComicDetailResponse.ChapterListBean>,
                      layout: Int = R.layout.item_chapter) :
         BaseQuickAdapter<ComicDetailResponse.ChapterListBean, BaseViewHolder>(

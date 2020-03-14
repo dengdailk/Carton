@@ -9,14 +9,7 @@ import com.study.carton.bean.search.SeachHotResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/9/20 15:56
- * @describe describe
- *
- */
+
 interface ComicService {
     companion object {
         const val BASE_URL = "http://app.u17.com/v3/appV3_3/android/phone/"

@@ -4,15 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 
-
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/13 18:33
- * @describe describe
- *
- */
 class ActivityLauncher(activity: AppCompatActivity) {
     private val TAG = "ActivityLauncher"
 

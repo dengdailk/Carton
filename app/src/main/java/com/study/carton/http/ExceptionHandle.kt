@@ -8,11 +8,7 @@ import java.net.SocketException
 import java.net.UnknownHostException
 
 
-/**
- * @author Lai
- * @time 2018/10/19 15:09
- * @Description
- */
+
 class ExceptionHandle {
     companion object {
         private val UNAUTHORIZED = 401

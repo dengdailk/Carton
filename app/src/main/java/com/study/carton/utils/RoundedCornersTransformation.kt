@@ -6,23 +6,16 @@ import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import java.security.MessageDigest
 
-/**
- * @author Lai
- * @time 2019/9/21 17:09
- * @describe describe
- */
 class RoundedCornersTransformation @JvmOverloads constructor(
     private val radius: Int,
-    margin: Int,
-    cornerType: CornerType = CornerType.ALL
+    private val margin: Int,
+    private val cornerType: CornerType = CornerType.ALL
 ) : BitmapTransformation() {
     enum class CornerType {
         ALL, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT, TOP, BOTTOM, LEFT, RIGHT, OTHER_TOP_LEFT, OTHER_TOP_RIGHT, OTHER_BOTTOM_LEFT, OTHER_BOTTOM_RIGHT, DIAGONAL_FROM_TOP_LEFT, DIAGONAL_FROM_TOP_RIGHT
     }
 
-    private val diameter: Int
-    private val margin: Int
-    private val cornerType: CornerType
+    private val diameter: Int = radius * 2
     override fun transform(
         context: Context, pool: BitmapPool,
         toTransform: Bitmap, outWidth: Int, outHeight: Int
@@ -439,9 +432,4 @@ class RoundedCornersTransformation @JvmOverloads constructor(
             "jp.wasabeef.glide.transformations.RoundedCornersTransformation.$VERSION"
     }
 
-    init {
-        diameter = radius * 2
-        this.margin = margin
-        this.cornerType = cornerType
-    }
 }

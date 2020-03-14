@@ -8,11 +8,7 @@ import com.study.carton.db.ReadChapter;
 
 import java.util.List;
 
-/**
- * @author Lai
- * @time 2019/10/3 15:29
- * @describe describe
- */
+
 public class ComicDetailResponse {
 
     /**

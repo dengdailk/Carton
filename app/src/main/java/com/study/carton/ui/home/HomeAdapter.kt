@@ -12,14 +12,7 @@ import com.study.carton.utils.DecorationUtils
 import com.study.carton.utils.DisplayUtils
 import com.study.carton.utils.GlideUtils
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/1 23:20
- * @describe describe
- *
- */
+
 class HomeAdapter(data: List<HomeTypeInfo>) : BaseMultiItemQuickAdapter<HomeTypeInfo, BaseViewHolder>(data) {
 
     init {

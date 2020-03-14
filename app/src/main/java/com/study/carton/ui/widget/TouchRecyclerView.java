@@ -9,9 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * @author Lai
- * @time 2018/1/29 21:40
- * @describe 触摸相关的RecyclerView.
  * 具体的作用：只要点击事件。滑动的话不算
  */
 

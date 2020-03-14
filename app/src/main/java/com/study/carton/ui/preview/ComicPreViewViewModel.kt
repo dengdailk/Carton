@@ -11,14 +11,6 @@ import com.study.carton.http.RetrofitClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/4 14:51
- * @describe describe
- *
- */
 class ComicPreViewViewModel : BaseViewModel() {
     val mPerViewResponse = MutableLiveData<ComicPreViewResponse>()
     private val chapterDao = BookDatabase.instance.getReadChapterDao()

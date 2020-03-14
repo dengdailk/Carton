@@ -5,14 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.study.carton.utils.DisplayUtils
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/12 19:29
- * @describe describe
- *
- */
+
 class PreCacheLayoutManager : LinearLayoutManager {
     constructor(context: Context?) : super(context)
 

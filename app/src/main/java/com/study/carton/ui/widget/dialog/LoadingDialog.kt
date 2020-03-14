@@ -5,14 +5,7 @@ import android.view.View
 import com.study.carton.R
 import kotlinx.android.synthetic.main.layout_loading.*
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/9/29 17:27
- * @describe describe
- *
- */
+
 class LoadingDialog(context: Context) : BaseDialog(context, R.style.LoadingDialog) {
     override fun getLayout(): Int {
         return R.layout.layout_loading

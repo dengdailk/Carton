@@ -1,10 +1,6 @@
 package com.study.carton.bean.comm
 
-/**
- * @author Lai
- * @time 2019/9/20 15:26
- * @describe describe
- */
+
 class ComicResponse<T> {
     /**
      * code : 1

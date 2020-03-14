@@ -9,14 +9,6 @@ import android.util.AttributeSet
 import com.study.carton.utils.DisplayUtils
 
 
-/**
- *
- * @author  Lai
- *
- * @time 2019/9/21 16:14
- * @describe describe
- *
- */
 class BookView : androidx.appcompat.widget.AppCompatImageView {
     constructor(context: Context?) : this(context, null)
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)

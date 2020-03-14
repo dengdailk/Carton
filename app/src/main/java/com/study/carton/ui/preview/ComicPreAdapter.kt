@@ -15,15 +15,6 @@ import com.study.carton.utils.DisplayUtils
 import com.study.carton.utils.GlideUtils
 import kotlin.math.roundToInt
 
-
-/**
- *
- * @author  Lai
- *
- * @time 2019/10/4 15:23
- * @describe 预览
- *
- */
 class ComicPreAdapter(data: List<ComicPreViewResponse.ImageListBean>) :
         BaseQuickAdapter<ComicPreViewResponse.ImageListBean, BaseViewHolder>(R.layout.item_preview, data) {
 

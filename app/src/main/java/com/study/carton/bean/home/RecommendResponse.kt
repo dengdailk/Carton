@@ -2,11 +2,7 @@ package com.study.carton.bean.home
 
 import com.stx.xhb.androidx.entity.SimpleBannerInfo
 
-/**
- * @author Lai
- * @time 2019/9/20 16:14
- * @describe describe
- */
+
 class RecommendResponse {
     /**
      * galleryItems : [{"linkType":3,"cover":"http://image.mylife.u17t.com/2018/08/13/1534139014_aD47F73D7N6m.jpg","id":1104,"title":"","content":"","ext":[{"key":"comicId","val":"27107"}]},{"linkType":3,"cover":"http://image.mylife.u17t.com/2018/06/29/1530241247_EGt652t61Kc8.jpg","id":986,"title":"","content":"","ext":[{"key":"comicId","val":"130521"}]},{"linkType":3,"cover":"http://image.mylife.u17t.com/2018/06/22/1529651410_ypW6SP078iE2.jpg","id":971,"title":"","content":"","ext":[{"key":"comicId","val":"145630"}]},{"linkType":3,"cover":"http://image.mylife.u17t.com/2018/06/19/1529372979_qDD9b9dP7CFq.jpg","id":963,"title":"","content":"","ext":[{"key":"comicId","val":"98063"}]},{"linkType":3,"cover":"http://image.mylife.u17t.com/2018/06/07/1528357510_CC9SAzZTcslN.jpg","id":946,"title":"","content":"","ext":[{"key":"comicId","val":"75859"}]}]
