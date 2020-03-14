@@ -88,9 +88,14 @@ class ComicPreViewViewModel : BaseViewModel() {
     fun saveReadPosition(chapter_id: String, position: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val chapter = chapterDao.getReadChapter(chapter_id)
-            chapter.readPosition = position
-            chapterDao.saveReadPosition(chapter)
 
+            if (chapter == null) {
+                chapterDao.insert(ReadChapter(0,chapter_id,"","","","",position))
+
+            } else {
+                chapter.readPosition = position
+                chapterDao.saveReadPosition(chapter)
+            }
 
 //            saveReadPosition(chapter_id, position)
 //            com.orhanobut.logger.Logger.e("-- 保存阅读位置 $position status")
