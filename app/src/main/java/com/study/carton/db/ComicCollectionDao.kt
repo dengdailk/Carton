@@ -26,8 +26,8 @@ interface ComicCollectionDao:BaseDao<ComicCollection> {
     @Query("delete from ComicCollection")
     fun deleteAll()
 
-    @Delete
-    fun delete(element: String?) {
+    @Query("delete from ComicCollection where comicId = :comicId")
+    fun delete(comicId: String) {
 
     }
 

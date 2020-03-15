@@ -68,16 +68,18 @@ class ComicDetailViewModel : BaseViewModel() {
 
     fun saveAndCancelCollection(comicBean: ComicDetailResponse.ComicBean,size:Int,readChapter:Int = -1) {
         viewModelScope.launch {
-//            mSaveCollection.value = withContext(Dispatchers.IO){
-//                val findCollection = comicCollectionDao.getComicCollection(comicBean)
-//                if (findCollection == null){
-//                    return@withContext comicCollectionDao.insert(ComicCollection(0,comicBean.comic_id,comicBean.name,comicBean.cover,size,readChapter))
-//                }else{
-//                    return@withContext comicCollectionDao.delete(comicBean.comic_id)
-//                }
-//            }
-            comicCollectionDao.delete(comicBean.comic_id)
-            comicCollectionDao.insert(ComicCollection(0,comicBean.comic_id,comicBean.name,comicBean.cover,size,readChapter))
+            mSaveCollection.value = withContext(Dispatchers.IO){
+                val findCollection = comicCollectionDao.getComicCollection(comicBean.comic_id)
+                if (findCollection == null){
+                    comicCollectionDao.insert(ComicCollection(0,comicBean.comic_id,comicBean.name,comicBean.cover,size,readChapter))
+                    return@withContext true
+                }else{
+                    comicCollectionDao.delete(comicBean.comic_id)
+                    return@withContext true
+                }
+            }
+//            comicCollectionDao.delete(comicBean.comic_id)
+//            comicCollectionDao.insert(ComicCollection(0,comicBean.comic_id,comicBean.name,comicBean.cover,size,readChapter))
         }
     }
 

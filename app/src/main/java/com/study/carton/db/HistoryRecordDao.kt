@@ -1,9 +1,6 @@
 package com.study.carton.db
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 /**
  * @author dengdai
@@ -28,4 +25,6 @@ interface HistoryRecordDao:BaseDao<HistoryRecord> {
 
     @Query("delete from HistoryRecord")
     fun deleteAll()
+    @Query("delete from HistoryRecord where comicId = :comicId")
+    fun delete(comicId: String)
 }

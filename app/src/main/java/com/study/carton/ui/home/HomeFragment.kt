@@ -1,5 +1,6 @@
 package com.study.carton.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -16,6 +17,7 @@ import com.study.carton.R
 import com.study.carton.base.BaseVMFragment
 import com.study.carton.bean.home.RecommendResponse
 import com.study.carton.ui.detail.ComicDetailActivity
+import com.study.carton.ui.search.SearchActivity
 import com.study.carton.utils.DisplayUtils
 import com.study.carton.utils.GlideUtils
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -128,7 +130,7 @@ class HomeFragment : BaseVMFragment() ,BaseQuickAdapter.OnItemChildClickListener
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.tv_search->{
-//                SearchActivity.openActivity(_mActivity)
+                SearchActivity.openActivity(_mActivity)
             }
         }
     }
