@@ -20,6 +20,7 @@ import com.study.carton.base.BaseVMActivity
 import com.study.carton.bean.detail.ComicDetailResponse
 import com.study.carton.ui.detail.ChapterAdapter
 import com.study.carton.ui.widget.PreCacheLayoutManager
+import com.study.carton.ui.widget.TouchRecyclerView
 import com.study.carton.utils.ActivityLauncher
 import com.study.carton.utils.DisplayUtils
 import com.study.carton.utils.Preference
@@ -118,12 +119,14 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
 
         setToolBar(ac_toolbar, mCurrRequestNewChapterBean.name)
 
-        rv_list.setITouchCallBack {
-            if (ll_right_layout.translationX == 0f)
-                switchRightMenu()
-            else
-                switchBAndTMenu()
-        }
+        rv_list.setITouchCallBack (object : TouchRecyclerView.ITouchCallBack{
+            override fun click() {
+                if (ll_right_layout.translationX == 0f)
+                    switchRightMenu()
+                else
+                    switchBAndTMenu()
+            }
+        })
         rv_list.addOnScrollListener(onScrollListener)
         //监听集数的返回
         mViewModel.mPerViewResponse.observe(this, Observer {
@@ -397,8 +400,8 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
 
     private fun requestMore(position: Int, isSaveDb: Boolean) {
         if (position != -1 && position <= mAllChapterList!!.size) {
-            val chapterBean = mAllChapterList?.get(position)!!
-            if (chapterBean.type == "3") {
+            val chapterBean = mAllChapterList?.get(position)
+            if (chapterBean?.type == "3") {
                 mComicPreAdapter?.apply {
                     if (isLoading) {
                         mComicPreAdapter?.loadMoreEnd()
@@ -408,7 +411,7 @@ class ComicPreViewActivity : BaseVMActivity(), View.OnClickListener,
                 return
             }
 
-            mCurrRequestNewChapterBean = chapterBean
+            mCurrRequestNewChapterBean = chapterBean!!
             mViewModel.setCurrChapterInfo(mCurrRequestNewChapterBean)
             mChapterListPosition[mCurrRequestNewChapterBean.chapter_id!!] = position
             //保存阅读记录,并且更新右边章节的阅读状态
