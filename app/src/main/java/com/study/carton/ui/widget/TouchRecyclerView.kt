@@ -20,11 +20,6 @@ class TouchRecyclerView @JvmOverloads constructor(
     private var startX = -1f
     private var startY = -1f
     private lateinit var mIMiddleCallBack: ITouchCallBack
-    fun setITouchCallBack(IMiddleCallBack: ITouchCallBack?) {
-        if (IMiddleCallBack != null) {
-            this.mIMiddleCallBack = IMiddleCallBack
-        }
-    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -48,5 +43,10 @@ class TouchRecyclerView @JvmOverloads constructor(
 
     interface ITouchCallBack {
         fun click()
+    }
+    fun setITouchCallBack(IMiddleCallBack: ITouchCallBack?) {
+        if (IMiddleCallBack != null) {
+            this.mIMiddleCallBack = IMiddleCallBack
+        }
     }
 }
