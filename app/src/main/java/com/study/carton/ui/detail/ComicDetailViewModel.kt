@@ -75,11 +75,9 @@ class ComicDetailViewModel : BaseViewModel() {
                     return@withContext true
                 }else{
                     comicCollectionDao.delete(comicBean.comic_id)
-                    return@withContext true
+                    return@withContext false
                 }
             }
-//            comicCollectionDao.delete(comicBean.comic_id)
-//            comicCollectionDao.insert(ComicCollection(0,comicBean.comic_id,comicBean.name,comicBean.cover,size,readChapter))
         }
     }
 

@@ -8,6 +8,8 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.google.android.material.appbar.AppBarLayout
 import com.gyf.immersionbar.ImmersionBar
@@ -117,7 +119,8 @@ class ComicDetailActivity : BaseVMActivity(), BaseQuickAdapter.OnItemChildClickL
                 }
                 val chapterAdapter = it?.chapter_list?.let { it1 -> ChapterAdapter(it1) }
                 chapterAdapter?.onItemChildClickListener = this
-                rv_list.layoutManager = GridLayoutManager(this, 2)
+                rv_list.layoutManager =  StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+
                 rv_list.addItemDecoration(ChapterDecoration())
                 chapterAdapter?.bindToRecyclerView(rv_list)
             } else {

@@ -1,6 +1,7 @@
 package com.study.carton.db
 
 import androidx.room.*
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 /**
  * @author dengdai
@@ -23,5 +24,4 @@ interface BaseDao<T> {
 
     @Update
     fun update(element: T)
-
 }

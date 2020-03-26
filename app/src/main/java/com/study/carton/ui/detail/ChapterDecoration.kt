@@ -21,7 +21,7 @@ class ChapterDecoration : RecyclerView.ItemDecoration() {
         state: RecyclerView.State
     ) {
         super.getItemOffsets(outRect, view, parent, state)
-        val layoutManager = parent.layoutManager as GridLayoutManager?
+        val layoutManager = parent.layoutManager
         val position = parent.getChildAdapterPosition(view)
         layoutManager?.also {
             when {

@@ -126,7 +126,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/cardView"
                     app:layout_scrollFlags="scroll"
-                    android:background="@color/color_979feb" />
+                    android:background="@drawable/button_start_shape" />
 
 
                 <TextView
@@ -150,7 +150,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/ac_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="?actionBarSize"
                 android:gravity="center_vertical"
                 app:buttonGravity="center_vertical"
                 app:contentInsetStartWithNavigation="@dimen/dist_1"
