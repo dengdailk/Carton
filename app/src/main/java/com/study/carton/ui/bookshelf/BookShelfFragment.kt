@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.gyf.immersionbar.ImmersionBar
 import com.orhanobut.logger.Logger
@@ -37,7 +38,7 @@ class BookShelfFragment : BaseVMFragment() , OnRefreshListener,
                 rv_list.addItemDecoration(BookShelfDecoration())
                 adapter.bindToRecyclerView(rv_list)
                 adapter.onItemChildClickListener = this
-                rv_list.layoutManager = GridLayoutManager(_mActivity, 3)
+                rv_list.layoutManager = StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)
             } else {
                 val adapter = rv_list.adapter as BookShelfAdapter
                 adapter.setNewData(it)

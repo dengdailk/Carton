@@ -1,6 +1,5 @@
 package com.study.carton.ui.home
 
-import android.widget.ImageView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.study.carton.R
