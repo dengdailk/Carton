@@ -68,7 +68,7 @@ dependencies {
     //cookie 持久化
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
     //沉浸式状态栏：https://github.com/gyf-dev/ImmersionBar
-    implementation 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
     implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
     //Logcat输出框架：https://github.com/orhanobut/logger
     implementation 'com.orhanobut:logger:2.2.0'
@@ -94,8 +94,8 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.0.7'
 
     //数据库管理类
-    implementation 'androidx.room:room-runtime:2.2.4'
-    kapt "androidx.room:room-compiler:2.2.4"
+    implementation 'androidx.room:room-runtime:2.2.5'
+    kapt "androidx.room:room-compiler:2.2.5"
     //刷新框架 1.1.0 androidx 版本
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'

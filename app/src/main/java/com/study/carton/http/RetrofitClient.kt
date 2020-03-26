@@ -40,7 +40,7 @@ object RetrofitClient {
             val cache = Cache(httpCacheDirectory, cacheSize)
             builder.cache(cache)
                 .cookieJar(cookieJar)
-                .addInterceptor(CommonInterceptor())
+                .addInterceptor(CommonInterceptor)
 
             return builder.build()
         }
@@ -57,17 +57,18 @@ object RetrofitClient {
     }
 
 
-    private fun CommonInterceptor(): Interceptor {
-        return Interceptor { chain ->
-            val request = chain.request()
-                .newBuilder()
-                .addHeader("Content-Type", "application/json")
-                .addHeader("charset", "UTF-8")
-                .build()
+    private val CommonInterceptor: Interceptor
+        get() {
+            return Interceptor { chain ->
+                val request = chain.request()
+                    .newBuilder()
+                    .addHeader("Content-Type", "application/json")
+                    .addHeader("charset", "UTF-8")
+                    .build()
 
-            chain.proceed(request)
+                chain.proceed(request)
+            }
         }
-    }
 }
 
 

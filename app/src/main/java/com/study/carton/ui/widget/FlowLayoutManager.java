@@ -31,7 +31,7 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
     }
 
     //计算显示的内容的高度
-    protected int totalHeight = 0;
+    private int totalHeight = 0;
     private Row row = new Row();
     private List<Row> lineRows = new ArrayList<>();
 

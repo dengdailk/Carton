@@ -42,7 +42,7 @@ class HomeAdapter(data: List<HomeTypeInfo>) : BaseMultiItemQuickAdapter<HomeType
             item?.also {
                 when (it.itemType) {
                     HomeTypeInfo.TITLE -> {
-                        GlideUtils.loadImage(mContext, it.title?.titleIconUrl, getView<ImageView>(R.id.iv_icon),
+                        GlideUtils.loadImage(mContext, it.title?.titleIconUrl, getView(R.id.iv_icon),
                                 0f)
                         setText(R.id.tv_title, it.title?.itemTitle)
                     }

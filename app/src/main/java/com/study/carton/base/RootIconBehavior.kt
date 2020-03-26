@@ -24,7 +24,7 @@ class RootIconBehavior : CoordinatorLayout.Behavior<ConstraintLayout> {
     private var heightRatio = 0f
     private var widthRatio = 0f
     private var defaultMargin = 0
-    private var iconDefaultStytle = true
+    private var iconDefaultStyle = true
 
     //切换样式零界点
     private var threshold = 0f
@@ -168,7 +168,7 @@ class RootIconBehavior : CoordinatorLayout.Behavior<ConstraintLayout> {
 
                 if (absY >= threshold) {
                     //更换icon
-                    if (iconDefaultStytle) {
+                    if (iconDefaultStyle) {
                         switchStyle(
                             mIv1,
                             R.mipmap.icon_discover_column_rank_white,
@@ -189,7 +189,7 @@ class RootIconBehavior : CoordinatorLayout.Behavior<ConstraintLayout> {
                             R.mipmap.icon_discover_column_subscribe_white,
                             R.mipmap.icon_discover_column_subscribe_green
                         )
-                        iconDefaultStytle = !iconDefaultStytle
+                        iconDefaultStyle = !iconDefaultStyle
                     }
                 } else {
                     val percent = 1 - ArithHelper.div(absY, threshold)
@@ -198,7 +198,7 @@ class RootIconBehavior : CoordinatorLayout.Behavior<ConstraintLayout> {
                     mTv3?.alpha = percent
                     mTv4?.alpha = percent
 
-                    if (!iconDefaultStytle) {
+                    if (!iconDefaultStyle) {
                         switchStyle(
                             mIv1,
                             R.mipmap.icon_discover_column_rank_white,
@@ -219,7 +219,7 @@ class RootIconBehavior : CoordinatorLayout.Behavior<ConstraintLayout> {
                             R.mipmap.icon_discover_column_subscribe_white,
                             R.mipmap.icon_discover_column_subscribe_green
                         )
-                        iconDefaultStytle = !iconDefaultStytle
+                        iconDefaultStyle = !iconDefaultStyle
                     }
 
                 }
@@ -233,7 +233,7 @@ class RootIconBehavior : CoordinatorLayout.Behavior<ConstraintLayout> {
 
     private fun switchStyle(imageView: ImageView?, defaultRes: Int, switchRes: Int) {
         imageView?.apply {
-            if (iconDefaultStytle) {
+            if (iconDefaultStyle) {
                 setBackgroundResource(R.drawable.shape_top_circle_bg)
                 setImageResource(switchRes)
             } else {

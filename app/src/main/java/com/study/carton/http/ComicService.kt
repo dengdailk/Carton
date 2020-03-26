@@ -5,7 +5,7 @@ import com.study.carton.bean.detail.ComicDetailResponse
 import com.study.carton.bean.home.RecommendResponse
 import com.study.carton.bean.preview.ComicPreViewResponse
 import com.study.carton.bean.search.ComicSearchResponse
-import com.study.carton.bean.search.SeachHotResponse
+import com.study.carton.bean.search.SearchHotResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -28,6 +28,6 @@ interface ComicService {
     suspend fun comicSearch(@Query("q") text: String, @Query("page") page: Int): ComicResponse<ComicSearchResponse>
 
     @GET("search/hotkeywordsnew")
-    suspend fun comicSearchHot(): ComicResponse<SeachHotResponse>
+    suspend fun comicSearchHot(): ComicResponse<SearchHotResponse>
 
 }

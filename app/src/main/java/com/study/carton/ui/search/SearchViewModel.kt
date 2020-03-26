@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.study.carton.base.BaseViewModel
 import com.study.carton.bean.search.ComicSearchResponse
-import com.study.carton.bean.search.SeachHotResponse
+import com.study.carton.bean.search.SearchHotResponse
 import com.study.carton.db.BookDatabase
 import com.study.carton.db.HistoryRecord
 import com.study.carton.http.RetrofitClient
@@ -14,12 +14,12 @@ import kotlinx.coroutines.withContext
 
 class SearchViewModel : BaseViewModel() {
 
-    val mSearchBean = MutableLiveData<SeachHotResponse>()
+    val mSearchBean = MutableLiveData<SearchHotResponse>()
     val mHistoryBean = MutableLiveData<List<HistoryRecord>>()
 
     val mSearchResult = MutableLiveData<ComicSearchResponse>()
 
-    val historyRecord = BookDatabase.instance.getHistoryRecordDao()
+    private val historyRecord = BookDatabase.instance.getHistoryRecordDao()
 
     fun getSearchHot() {
         request({

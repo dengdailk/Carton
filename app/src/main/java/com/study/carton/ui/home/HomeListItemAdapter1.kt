@@ -28,7 +28,7 @@ class HomeListItemAdapter1(data: List<RecommendResponse.ComicListsBean.ComicsBea
                 setText(R.id.tv_title, it.name)
                 addOnClickListener(R.id.frameLayout)
                 GlideUtils.loadImage(
-                    mContext, it.cover, getView<ImageView>(R.id.iv_cover),
+                    mContext, it.cover, getView(R.id.iv_cover),
                     0f, imageWidth, imageHeight
                 )
             }

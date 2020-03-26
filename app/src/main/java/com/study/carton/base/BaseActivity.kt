@@ -1,6 +1,7 @@
 package com.study.carton.base
 
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
@@ -64,8 +65,8 @@ abstract class BaseActivity : SupportActivity(), IBaseView {
             supportActionBar.setDisplayShowHomeEnabled(needBackButton)
             supportActionBar.title = ""
         }
-//        val tvTitle = toolBar.findViewById<TextView>(R.id.ac_title)
-//        tvTitle?.text = title
+        val tvTitle = toolBar.findViewById<TextView>(R.id.ac_title)
+        tvTitle?.text = title
 
         if (needBackButton) {
             toolBar.setNavigationOnClickListener {
@@ -76,8 +77,8 @@ abstract class BaseActivity : SupportActivity(), IBaseView {
 
 
     fun setToolBarTitle(toolBar: androidx.appcompat.widget.Toolbar, title: String?) {
-//        val tvTitle = toolBar.findViewById<TextView>(R.id.ac_title)
-//        tvTitle?.text = title
+        val tvTitle = toolBar.findViewById<TextView>(R.id.ac_title)
+        tvTitle?.text = title
     }
 
 

@@ -5,7 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 
 class ActivityLauncher(activity: AppCompatActivity) {
-    private val TAG = "ActivityLauncher"
+    private  val TAG = "ActivityLauncher"
 
     private var mContext: Context? = activity
     private var mRouterFragment: RouterFragment? = null
